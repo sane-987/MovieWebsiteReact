@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 
-const Nav = () => {
+function Nav() {
+
+    const [ismenuOpen, setismenuOpen] = useState(false)
+
     return (
         <nav className = "nav">
             <a href="/" className="site-title">NETFLIX CLONE</a>
-            <ul>
+            <div className="hamburger" onClick={() => {setismenuOpen(!ismenuOpen)}}>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul className = {ismenuOpen?"open":"close"}>
                 <li className="active">
                     <a href="/Home">Home</a>
                 </li>
@@ -19,6 +27,8 @@ const Nav = () => {
                     <a href="/ContactUs">Contact Us</a>
                 </li>
             </ul>
+            
+            
         </nav>
     )
 }

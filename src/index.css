@@ -9,6 +9,9 @@
     background-color: #333;
     color : white;
     display : flex;
+    position : fixed;
+    top: 0;
+    width : 100%;
     justify-content: space-between;
     align-items: center;
     gap : 2rem;
@@ -37,20 +40,74 @@
 
 .nav li.active {
     background-color: #555;
+    border-radius: .25rem;
 }
 .nav li:hover {
     background-color: #777;
+    transition: 0.4s;
+    border-radius: .25rem;
 }
 
-@media (max-width : 640px) {
-    .nav {
-        text-align: center;
-        flex-direction: column;
+.nav .hamburger {
+    border: 0;
+    height: 40px;
+    width: 40px;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease-in-out;
+    position: absolute;
+    top: 1.3rem;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.nav .hamburger span{
+    width : 2.2rem;
+    height: 100%;
+    background-color: white;
+    border-radius: .2rem;
+
+    margin : .2rem;
+}
+
+@media (max-width : 480px) {
+    .nav .hamburger {
+        display : flex;
     }
-    .nav ul {
+    .nav {
         flex-direction: column;
+        align-items: start;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .nav ul.open {
+        display:flex;
+        transition: display 0.2s ease-in-out;
+    }
+    
+    .nav ul {
+        display : none;
+        flex-direction: column;
+        justify-content: space-around;
+        width : 100%;
+        margin-bottom:.24rem;
+    }
+    .nav ul li{
+        width: 100%;
+        text-align: center;
+        border-radius: .5rem;
+    }
+    
+    .nav li:hover {
+        background-color: blue !important;
+    }
+    .nav ul li a{
+        margin : .2rem .5rem;
     }
 }
+
 
 
 body {
@@ -72,17 +129,29 @@ body {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+@media screen and (max-width : 767px) {
+    .movielist {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
+@media screen and (max-width : 480px) {
+    .movielist {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
 .movie {
+    display : flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 0.25rem;
     margin : 10px;
     border-radius : 1rem;
     padding : 1rem 2rem;
     background-color: grey;
     width : 300px;
 }
-.movie a {
-    color : inherit;
-}
-.book h1 {
-    margin-top : 0.5rem;
+.movie a, h1 {
+    color : black;
+    margin-top: 0.5rem;
 }

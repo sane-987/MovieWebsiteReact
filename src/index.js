@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import MovieList from "./MovieList"
 
-ReactDOM.render(<MovieList />, document.getElementById('root'))
+import Application from "./Application"
+
+ReactDOM.render(<Application />, document.getElementById('root'))
